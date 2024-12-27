@@ -2,6 +2,7 @@ import React from 'react'
 import Link from '../link/link';
 import { Routes } from '@/app/constants/enumbs';
 import NavBar from './NavBar';
+import CartButton from './CartButton';
 
 const Header = () => {
     return (
@@ -11,6 +12,7 @@ const Header = () => {
                 🍕 Pizza
                 </Link>
                 <NavBar/>
+                <CartButton />
             </div>
         </header>
     )

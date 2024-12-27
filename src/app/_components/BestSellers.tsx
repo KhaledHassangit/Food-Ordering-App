@@ -5,7 +5,7 @@ import { getBestSellers } from '@/server/db/products'
 
 const  BestSellers = async () => {
 
-  const bestSellers = await getBestSellers()
+  const bestSellers = await getBestSellers(3)
 
   return ( 
     <section className='section-gap'>

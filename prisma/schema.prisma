@@ -28,6 +28,7 @@ model User {
   updatedAt     DateTime       @updatedAt
   orders        OrderProduct[]
 }
+
 model Product {
   id          String         @id @default(cuid())
   name        String
@@ -38,10 +39,10 @@ model Product {
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
   sizes       Size[]
-  extras      Extra[] 
+  extras      Extra[]
   orders      OrderProduct[]
   category    Category       @relation(fields: [categoryId], references: [id])
-  categoryId String
+  categoryId  String
 }
 
 model Size {
@@ -66,6 +67,7 @@ model Category {
   order    Int       @default(autoincrement())
   products Product[]
 }
+
 model Order {
   id            String         @id @default(uuid())
   paid          Boolean        @default(false)
@@ -86,6 +88,7 @@ model Order {
 model OrderProduct {
   id       String @id @default(cuid())
   quantity Int
+
   order     Order   @relation(fields: [orderId], references: [id])
   orderId   String
   user      User?   @relation(fields: [userId], references: [id])
