@@ -17,25 +17,40 @@ import { Checkbox } from "../ui/checkbox"
 import { Extra, ProductSizes, Size } from "@prisma/client"
 import { ProductWithRelations } from "@/types/products"
 import { useState } from "react"
-import { useAppSelector } from "@/store/hooks"
-import { selectCartItems } from "@/store/features/cart/cartSlice"
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import { addCartItem, removeCartItem, removeItem, selectCartItems } from "@/store/features/cart/cartSlice"
+import { getCartQuantity, getItemQuantity } from "@/lib/cart"
 
 const AddToCart = ({ item }: { item: ProductWithRelations[] }) => {
+    const dispatch = useAppDispatch()
     const cart = useAppSelector(selectCartItems)
+    const cartQuantity = getItemQuantity(item.id, cart)
     const defaultSize = cart.find((element) => element.id === item.id)?.size || item.sizes.find((size) => size.name === ProductSizes.SMALL);
     const defaultExtras = cart.find((element) => element.id === item.id)?.extras || []
     const [seletectedExtras, setSeletectedExtras] = useState<Extra[]>(defaultExtras)
     const [seletectedSize, setSelectedSize] = useState<Size>(defaultSize)
 
     let totalPrice = item?.basePrice
-    if(seletectedSize){
+    if (seletectedSize) {
         totalPrice += seletectedSize.price
     }
-    if(seletectedExtras.length > 0){
-        for(const extra of seletectedExtras){
+    if (seletectedExtras.length > 0) {
+        for (const extra of seletectedExtras) {
             totalPrice += extra.price
         }
     }
+
+    const handelAddToCart = () => {
+        dispatch(addCartItem({
+            id: item.id,
+            name: item.name,
+            image: item.image,
+            basePrice: item.basePrice,
+            size: seletectedSize,
+            extras: seletectedExtras
+        }))
+    }
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -64,11 +79,27 @@ const AddToCart = ({ item }: { item: ProductWithRelations[] }) => {
                     </div>
                 </div>
                 <DialogFooter>
-                    <Button
-                        type='submit'
-                        className='w-full h-10'>
-                        Add to cart {formatCurrency(totalPrice)}
-                    </Button>
+                    {
+                        cartQuantity === 0 ?
+                            <Button
+                                type='submit'
+                                className='w-full h-10'
+                                onClick={handelAddToCart}>
+                                {
+
+                                }
+                                Add to cart {formatCurrency(totalPrice)}
+                            </Button> :
+                            <ChooseQuantity
+                            cartQuantity={cartQuantity}
+                                item={item}
+                                seletectedSize={seletectedSize}
+                                seletectedExtras={seletectedExtras}
+                            />
+
+                    }
+
+
                 </DialogFooter>
             </DialogContent>
         </Dialog>
@@ -132,3 +163,55 @@ function Extras({ extras, setSeletectedExtras, seletectedExtras }:
         </RadioGroup>
     )
 }
+
+const ChooseQuantity = ({
+    cartQuantity,
+    item,
+    selectedExtras,
+    selectedSize,
+  }: {
+    cartQuantity: number;
+    selectedExtras: Extra[];
+    selectedSize: Size;
+    item: ProductWithRelations;
+  }) => {
+    const dispatch = useAppDispatch();
+    return (
+      <div className='flex items-center flex-col gap-2 mt-4 w-full'>
+        <div className='flex items-center justify-center gap-2'>
+          <Button
+            variant='outline'
+            onClick={() => dispatch(removeCartItem({ id: item.id }))}
+          >
+            -
+          </Button>
+          <div>
+            <span className='text-black'>{cartQuantity} in cart</span>
+          </div>
+          <Button
+            variant='outline'
+            onClick={() =>
+              dispatch(
+                addCartItem({
+                  basePrice: item.basePrice,
+                  id: item.id,
+                  image: item.image,
+                  name: item.name,
+                  extras: selectedExtras,
+                  size: selectedSize,
+                })
+              )
+            }
+          >
+            +
+          </Button>
+        </div>
+        <Button
+          size='sm'
+          onClick={() => dispatch(removeItem({ id: item.id }))}
+        >
+          Remove
+        </Button>
+      </div>
+    );
+  };

@@ -3,6 +3,7 @@ import Link from '../link/link';
 import { Routes } from '@/app/constants/enumbs';
 import NavBar from './NavBar';
 import CartButton from './CartButton';
+import LanguageSwitcher from './Languare-Switcher';
 
 const Header = () => {
     return (
@@ -12,6 +13,7 @@ const Header = () => {
                 🍕 Pizza
                 </Link>
                 <NavBar/>
+                <LanguageSwitcher/>
                 <CartButton />
             </div>
         </header>
