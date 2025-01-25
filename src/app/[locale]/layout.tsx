@@ -33,8 +33,7 @@ export default async function RootLayout({
   const locale = (await params).locale;
   return (
     <html lang={locale} 
-    dir={locale === Languages.ARABIC ? Directions.RTL : Directions.LTR}
->
+    dir={locale === Languages.ARABIC ? Directions.RTL : Directions.LTR}>
       <body className={`${roboto.className}`}>
           <ReduxProvider>
             <Header/>

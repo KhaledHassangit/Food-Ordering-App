@@ -1,22 +1,27 @@
-import React from 'react'
-import Menu from '@/components/menu/Menu'
-import MainHeading from '@/components/Mian-Heading/Main-Heading'
-import { getBestSellers } from '@/server/db/products'
+import Menu from '@/components/menu/Menu';
+import MainHeading from '@/components/Mian-Heading/Main-Heading';
+import { getCurrentLocale } from '@/lib/getCurrentLocale';
+import getTrans from '@/lib/translation';
+import { getBestSellers } from '@/server/db/products';
 
-const  BestSellers = async () => {
-
-  const bestSellers = await getBestSellers(3)
-
-  return ( 
-    <section className='section-gap'>
-        <div className='container'>
-            <div className='text-center mb-8'>
-                <MainHeading subTitle='CheckOut' title='Our Best Sellers'/>
-            </div>
-          <Menu items={bestSellers}/>
+async function BestSellers() {
+  const bestSellers = await getBestSellers(3);
+  const locale = await getCurrentLocale();
+  const { home } = await getTrans(locale);
+  const { bestSeller } = home;
+  return (
+    <section>
+      <div className='container'>
+        <div className='text-center mb-4'>
+          <MainHeading
+            subTitle={bestSeller.checkOut}
+            title={bestSeller.OurBestSellers}
+          />
         </div>
+        <Menu items={bestSellers} />
+      </div>
     </section>
-  )
+  );
 }
 
-export default BestSellers
+export default BestSellers;
