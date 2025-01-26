@@ -16,11 +16,11 @@ async function SignUpPage() {
         <div className="container element-center">
           <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold text-center text-black mb-4">
-              translations.auth.login.title
+              {translations.auth.login.title}
             </h2>
             <Form translations={translations} />
             <p className="mt-2 flex items-center justify-center text-accent text-sm">
-              <span>translations.auth.login.authPrompt.message</span>
+              <span>{translations.auth.login.authPrompt.message}</span>
               <Link
                 href={`/${locale}/${Routes.AUTH}/${Pages.Register}`}
                 className={`${buttonVariants({
@@ -28,8 +28,8 @@ async function SignUpPage() {
                   size: "sm",
                 })} !text-black`}
               >
-                translations.auth.login.authPrompt.signUpLinkText
-              </Link>
+                {translations.auth.register.authPrompt.loginLinkText}
+                </Link>
             </p>
           </div>
         </div>
