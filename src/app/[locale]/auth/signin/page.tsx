@@ -16,19 +16,19 @@ async function SignInPage() {
         <div className="container element-center">
           <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold text-center text-black mb-4">
-              Welcome Back
+            {translations.auth.login.title}
             </h2>
             <Form translations={translations} />
             <p className="mt-2 flex items-center justify-center text-accent text-sm">
-              <span>Don&apos;t have an account?</span>
-              <Link
+            <span>{translations.auth.login.authPrompt.message}</span>
+            <Link
                 href={`/${locale}/${Routes.AUTH}/${Pages.Register}`}
                 className={`${buttonVariants({
                   variant: "link",
                   size: "sm",
                 })} !text-black`}>
-                Sign Up
-              </Link>
+                {translations.auth.login.authPrompt.signUpLinkText}
+                </Link>
             </p>
           </div>
         </div>

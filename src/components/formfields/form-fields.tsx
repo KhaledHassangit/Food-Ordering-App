@@ -4,10 +4,10 @@ import { InputTypes } from "@/app/constants/enumbs";
 import TextField from "./text-field";
 import PasswordField from "./password-field";
 import Checkbox from "./checkbox";
+import { ValidationErrors } from "@/validations/auth";
 
 interface Props extends IFormField {
-  error: any;
-//   error: ValidationErrors;
+  error: ValidationErrors;
 }
 
 const FormFields = (props: Props) => {
