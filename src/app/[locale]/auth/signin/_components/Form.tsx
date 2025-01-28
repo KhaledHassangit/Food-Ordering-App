@@ -1,5 +1,5 @@
 "use client"
-import { Pages } from '@/app/constants/enumbs';
+import { Pages, Routes } from '@/app/constants/enumbs';
 import FormFields from '@/components/formfields/form-fields';
 import { Button } from '@/components/ui/button'
 import useFormFields from '@/hooks/useFormFields'
@@ -9,8 +9,12 @@ import { signIn } from "next-auth/react"
 import { toast } from '@/hooks/use-toast';
 import { Translations } from '@/types/translations';
 import Loader from '@/components/ui/Loader';
+import { useParams, useRouter } from "next/navigation";
 
 function Form({translations}:{translations:Translations}) {
+  const router = useRouter();
+  const { locale } = useParams();
+
   const { getFormFields } = useFormFields({ slug: Pages.LOGIN, translations: translations });
   const formRef = useRef<HTMLFormElement>(null)
   const [error,setError] = useState({})
@@ -45,6 +49,7 @@ function Form({translations}:{translations:Translations}) {
         toast({title:translations.messages.loginSuccessful,
           className:"text-green-400",
         })
+        router.replace(`/${locale}/${Routes.PROFILE}`);
 
       }
     } catch (error) {

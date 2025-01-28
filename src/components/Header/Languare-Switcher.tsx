@@ -16,7 +16,7 @@ const LanguageSwitcher = () => {
     };
 
     return (
-        <div className='flex mx-4'>
+        <div className='flex '>
             {locale === Languages.ARABIC ? (
                 <Button
                     variant='outline'

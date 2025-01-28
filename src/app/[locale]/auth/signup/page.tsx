@@ -22,7 +22,7 @@ async function SignUpPage() {
             <p className="mt-2 flex items-center justify-center text-accent text-sm">
               <span>{translations.auth.login.authPrompt.message}</span>
               <Link
-                href={`/${locale}/${Routes.AUTH}/${Pages.Register}`}
+                href={`/${locale}/${Routes.AUTH}/${Pages.LOGIN}`}
                 className={`${buttonVariants({
                   variant: "link",
                   size: "sm",
