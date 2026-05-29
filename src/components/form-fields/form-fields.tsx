@@ -27,7 +27,7 @@ const FormFields = (props: Props) => {
           name={props.name}
           label={props.label}
           checked={Boolean(props.defaultValue)}
-          onClick={props.onClick as any}
+          onClick={props.onClick}
         />
       );
     }
