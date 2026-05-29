@@ -38,6 +38,19 @@ export default withAuth(
 
     const pathname = request.nextUrl.pathname;
 
+    const isStaticAsset =
+      pathname.startsWith("/assets") ||
+      pathname.includes("/assets/") ||
+      pathname.startsWith("/_next/static") ||
+      pathname.startsWith("/_next/image") ||
+      pathname === "/favicon.ico" ||
+      pathname === "/robots.txt" ||
+      pathname === "/sitemap.xml";
+
+    if (isStaticAsset) {
+      return response;
+    }
+
     const pathnameIsMissingLocale = i18n.locales.every(
       (locale) => !pathname.startsWith(`/${locale}`)
     );
