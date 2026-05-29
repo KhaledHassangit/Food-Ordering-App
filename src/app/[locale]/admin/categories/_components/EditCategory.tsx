@@ -19,8 +19,8 @@ import { ValidationError } from "next/dist/compiled/amphtml-validator";
 import { useParams } from "next/navigation";
 import { useActionState, useEffect } from "react";
 import { updateCategory } from "../_actions/category";
-import Loader from "@/components/ui/loader";
 import { toast } from "@/hooks/use-toast";
+import Loader from "@/components/ui/loader";
 
 type InitialStateType = {
   message?: string;

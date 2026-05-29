@@ -22,9 +22,9 @@ import Link from "@/components/link";
 import { useParams } from "next/navigation";
 import { ValidationErrors } from "@/validations/auth";
 import { addProduct, deleteProduct, updateProduct } from "../_actions/product";
-import Loader from "@/components/ui/loader";
 import { toast } from "@/hooks/use-toast";
 import { ProductWithRelations } from "@/types/product";
+import Loader from "@/components/ui/loader";
 
 function Form({
   translations,
