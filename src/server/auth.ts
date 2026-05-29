@@ -1,3 +1,4 @@
+import { Environments, Pages, Routes } from "@/constants/enums";
 import { DefaultSession, type NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
@@ -6,7 +7,6 @@ import { login } from "./_actions/auth";
 import { Locale } from "@/i18n.config";
 import { User, UserRole } from "@prisma/client";
 import { JWT } from "next-auth/jwt";
-import { Environments, Pages, Routes } from "@/app/constants/enumbs";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {

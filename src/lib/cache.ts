@@ -1,11 +1,13 @@
- import {cache as reactCache}  from "react"
- import { unstable_cache as nextCache } from "next/cache"
+import { unstable_cache as nextCache } from 'next/cache';
+import { cache as reactCache } from 'react';
 
- /* eslint-disable @typescript-eslint/no-explicit-any */
- type Callback = (...args: any[]) => Promise<any>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Callback = (...args: any[]) => Promise<any>;
 
- export function cache<T extends Callback>(callback:T,keyParts:string[],
-    options:{revalidate?:number | false ; tags?:string[]})
-    {
-    return nextCache(reactCache(callback),keyParts,options)
-    }
+export function cache<T extends Callback>(
+  cb: T,
+  keyParts: string[],
+  options: { revalidate?: number | false; tags?: string[] }
+) {
+  return nextCache(reactCache(cb), keyParts, options);
+}

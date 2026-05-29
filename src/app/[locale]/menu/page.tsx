@@ -1,4 +1,4 @@
-import Menu from "@/components/menu/Menu";
+import Menu from "@/components/menu";
 import { Locale } from "@/i18n.config";
 import getTrans from "@/lib/translation";
 import { getProductsByCategory } from "@/server/db/products";

@@ -80,6 +80,8 @@ body {
   }
 }
 
+/* For Shadcn Dialog */
+
 html[lang="ar"] div[role="dialog"] button {
   left: 24px !important;
   right: auto !important;
@@ -89,19 +91,3 @@ html[lang="en"] div[role="dialog"] button {
   left: auto !important;
   right: 24px !important;
 }
-
-/* Scrollbar Styles */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
-  border-radius: var(--radius);
-  border: 3px solid transparent; 
-}
-

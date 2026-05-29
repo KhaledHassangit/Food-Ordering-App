@@ -1,4 +1,4 @@
-import { Languages } from "./app/constants/enumbs";
+import { Languages } from '@/constants/enums';
 
 export type LanguageType = Languages.ARABIC | Languages.ENGLISH;
 

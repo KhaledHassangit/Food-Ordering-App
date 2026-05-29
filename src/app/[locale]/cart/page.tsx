@@ -1,5 +1,5 @@
-import CartItems from "@/components/cart/CartItems";
-import CheckoutForm from "@/components/cart/CheckoutForm";
+import CartItems from './_components/CartItems';
+import CheckoutForm from './_components/CheckoutForm';
 
 function CartPage() {
   return (

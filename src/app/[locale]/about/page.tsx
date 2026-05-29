@@ -1,9 +1,9 @@
-import About from '@/components/About/About';
+import About from '@/components/about';
 
-async function AboutPage() {
+function AboutPage() {
   return (
     <main>
-        <About/>
+      <About />
     </main>
   );
 }

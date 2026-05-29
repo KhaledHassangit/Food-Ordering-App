@@ -1,17 +1,17 @@
 "use client";
 
+import { Routes } from "@/constants/enums";
+import Link from "../link";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { Menu, XIcon } from "lucide-react";
 import { useParams, usePathname } from "next/navigation";
+import AuthButtons from "./auth-buttons";
+import LanguageSwitcher from "./language-switcher";
 import { Translations } from "@/types/translations";
 import { Session } from "next-auth";
-import { UserRole } from "@prisma/client";
-import { Routes } from "@/app/constants/enumbs";
-import Link from "../link/link";
-import AuthButtons from "./auth-buttons";
-import LanguageSwitcher from "./Languare-Switcher";
 import { useClientSession } from "@/hooks/useClientSession";
+import { UserRole } from "@prisma/client";
 
 function Navbar({
   translations,
@@ -45,7 +45,7 @@ function Navbar({
   ];
   const isAdmin = session.data?.user.role === UserRole.ADMIN;
   return (
-    <nav className="order-last lg:order-none ">
+    <nav className="order-last lg:order-none">
       <Button
         variant="secondary"
         size="sm"
@@ -106,8 +106,8 @@ function Navbar({
                 : translations.navbar.profile}
             </Link>
           </li>
-        )} 
-         <li className="lg:hidden flex flex-col gap-4">
+        )}
+        <li className="lg:hidden flex flex-col gap-4">
           <div onClick={() => setOpenMenu(false)}>
             <AuthButtons
               translations={translations}
