@@ -4,10 +4,13 @@ import AddToCartButton from "./add-to-cart-button";
 import { ProductWithRelations } from "@/types/product";
 
 function MenuItem({ item }: { item: ProductWithRelations }) {
-  const imageSrc =
-    item.image && item.image.startsWith("/")
-      ? item.image
+  const imageSrc = (() => {
+    const rawImage = item.image ?? "/assets/images/pizza.png";
+    const normalized = rawImage.replace(/^\/(?:ar|en)\/assets\/images\//, "/assets/images/");
+    return normalized.startsWith("/")
+      ? normalized
       : "/assets/images/pizza.png";
+  })();
 
   return (
     <li
