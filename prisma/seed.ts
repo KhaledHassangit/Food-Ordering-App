@@ -80,7 +80,7 @@ async function main() {
       data: {
         name: "Margherita Pizza",
         description: "Classic tomato & mozzarella pizza",
-        image: "https://source.unsplash.com/800x600/?pizza,cheese",
+        image: "/assets/images/pizza.png",
         basePrice: 120,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -104,7 +104,7 @@ async function main() {
       data: {
         name: "BBQ Chicken Pizza",
         description: "BBQ chicken with cheese",
-        image: "https://source.unsplash.com/800x600/?pizza,chicken",
+        image: "/assets/images/pizza.png",
         basePrice: 160,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -116,7 +116,7 @@ async function main() {
       data: {
         name: "Veggie Pizza",
         description: "Fresh vegetable pizza",
-        image: "https://source.unsplash.com/800x600/?pizza,vegetarian",
+        image: "/assets/images/pizza.png",
         basePrice: 130,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -128,7 +128,7 @@ async function main() {
       data: {
         name: "Four Cheese Pizza",
         description: "Cheese lovers pizza",
-        image: "https://source.unsplash.com/800x600/?pizza,cheese",
+        image: "/assets/images/pizza.png",
         basePrice: 170,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -140,7 +140,7 @@ async function main() {
       data: {
         name: "Spicy Pepperoni",
         description: "Hot pepperoni pizza",
-        image: "https://source.unsplash.com/800x600/?pizza,spicy",
+        image: "/assets/images/pizza.png",
         basePrice: 155,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -152,7 +152,7 @@ async function main() {
       data: {
         name: "Chicken Ranch",
         description: "Chicken ranch pizza",
-        image: "https://source.unsplash.com/800x600/?pizza,chicken",
+        image: "/assets/images/pizza.png",
         basePrice: 165,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
