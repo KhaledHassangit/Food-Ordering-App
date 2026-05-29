@@ -92,7 +92,7 @@ async function main() {
       data: {
         name: "Pepperoni Pizza",
         description: "Cheesy pepperoni pizza",
-    image: "/assets/pizza.png",
+        image: "/assets/images/pizza.png",
         basePrice: 150,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -164,7 +164,7 @@ async function main() {
       data: {
         name: "Mushroom Pizza",
         description: "Mushroom pizza",
-    image: "/assets/pizza.png",
+        image: "/assets/images/pizza.png",
         basePrice: 140,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -176,7 +176,7 @@ async function main() {
       data: {
         name: "Meat Lovers",
         description: "Loaded meat pizza",
-    image: "/assets/pizza.png",
+        image: "/assets/images/pizza.png",
         basePrice: 190,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -188,7 +188,7 @@ async function main() {
       data: {
         name: "Hawaiian Pizza",
         description: "Ham & pineapple",
-    image: "/assets/pizza.png",
+        image: "/assets/images/pizza.png",
         basePrice: 150,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -200,7 +200,7 @@ async function main() {
       data: {
         name: "Supreme Pizza",
         description: "All toppings pizza",
-    image: "/assets/pizza.png",
+        image: "/assets/images/pizza.png",
         basePrice: 180,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
@@ -212,7 +212,7 @@ async function main() {
       data: {
         name: "Cheese Burst Pizza",
         description: "Extra cheesy pizza",
-    image: "/assets/pizza.png",
+        image: "/assets/images/pizza.png",
         basePrice: 200,
         categoryId: pizzaCategory.id,
         sizes: { create: sizeDefault },
